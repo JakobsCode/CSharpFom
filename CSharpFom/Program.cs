@@ -1,15 +1,40 @@
-﻿namespace CSharpFom
+﻿using System.Runtime.CompilerServices;
+
+namespace CSharpFom
 {
-    internal class Program
+    public class ValueSet
     {
-        static int count = 0;
-        static int Main(string[] args)
+        private int count;
+        private int[] values = new int[100];
+
+        public bool AddValue(int value)
         {
-            Console.WriteLine("Hello, World!");
-            return 0;
+            for (int i = 0; i < count; i++)
+            {
+                if (values[i] == value) return false;
+            }
+            values[count++] = value;
+            return true;
+
         }
 
-        private int _j;
-        private int _i;
+        public void PrintValues()
+        {
+            for (int i = 0; i < count; i++) {
+                Console.WriteLine(values[i]);
+            }
+        }
+    }
+    class Program
+    {
+        public static void Main()
+        {
+            ValueSet vs = new ValueSet();
+            vs.AddValue(1);
+            vs.AddValue(2);
+            vs.AddValue(3);
+            vs.AddValue(2);
+            vs.PrintValues();
+        }
     }
 }
