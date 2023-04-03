@@ -1,40 +1,28 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.CompilerServices;
+using class1;
 
 namespace CSharpFom
 {
-    public class ValueSet
-    {
-        private int count;
-        private int[] values = new int[100];
-
-        public bool AddValue(int value)
-        {
-            for (int i = 0; i < count; i++)
-            {
-                if (values[i] == value) return false;
-            }
-            values[count++] = value;
-            return true;
-
-        }
-
-        public void PrintValues()
-        {
-            for (int i = 0; i < count; i++) {
-                Console.WriteLine(values[i]);
-            }
-        }
-    }
     class Program
     {
         public static void Main()
         {
-            ValueSet vs = new ValueSet();
-            vs.AddValue(1);
-            vs.AddValue(2);
-            vs.AddValue(3);
-            vs.AddValue(2);
-            vs.PrintValues();
+            myStack st = new myStack();
+            bool stop = false;
+            while (!stop)
+            {
+                string methode = Console.ReadLine().ToLower();
+                switch (methode)
+                {
+                    case "init": Console.WriteLine("Programm gestartet"); break;
+                    case "end": stop = true; break;
+                    case "push": methode = Console.ReadLine().ToLower(); st.push(methode); break;
+                    case "pop": st.pop(); break;
+                    default: Console.WriteLine("Error"); break;
+
+                }
+            }
         }
     }
 }
