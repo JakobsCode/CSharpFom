@@ -3,7 +3,7 @@
     public class myStack
     {
         private object[] einträge = new object[100];
-        private int index = 0;
+        private int index = -1;
 
         public void push(object eintrag)
         {
@@ -21,7 +21,7 @@
         {
             for (int i = index; i>=0; i--)
             {
-                Console.WriteLine(einträge[i]);
+                Console.WriteLine("<{0}>", einträge[i].ToString());
             }
         }
 
